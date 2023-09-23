@@ -13,12 +13,6 @@ from Bio import SeqIO
 #BE.email = 'hodane@utu.fi'
 
 
-# ## (1)
-# 
-# "For handling a large MSA of all available sequences we’d need some code to reject any sequences (records) which have a gap at any of the columns of interest. The sample came from a manually edited MSA from which I had taken out the sequences not containing complete active sites by visual inspection and deletion in SeaView. It would be simple to implement programmatically by going through each record.
-# check that none of the given columns have gaps;
-# if there are gaps, next record; if ok, add the record to a new array;
-# In the end, write the new array into a new file"
 
 # In[2]:
 
@@ -35,9 +29,6 @@ MSA_sequences_collections
 SeqIO.write(MSA_sequences_collections, "hosein_sequences_collection.fasta", "fasta") # a new file
 
 
-# ## (2)
-# 
-# "Attached file for testing/developing python code to compute the distances between specific conserved “landmark” amino acids in an MSA. We could try to get distribution of distances between the 2nd and 3rd metal-binding histidines (H) at columns 877 and 980 in the sample MSA (distances in the ungapped sequences). Also get the identities of amino acids in columns 875, 877 and 980 to check if all metal-binding triplets are HHH, the default version."
 
 # In[3]:
 
@@ -86,10 +77,7 @@ bp = ax.boxplot(data, labels=["delta CAs","smlp_2","smlp_3","smlp_4"])
 plt.show()
 
 
-# ## (4)
 
-# "Cell 3 (chatGPT code) is obviously useless, it just gives 1 or 2 to indicate first or second of the columns of interest, not the sequence numbers. Your cell 4 solves nicely the distance problem, but still does not give the original sequence numbers. You could get them by taking the slice from start to the column number, count gap characters and subtract that from column number. Same logic as for the distance computation. In addition to the HHH output (which worked perfectly) I would also like to see a version with numbers, like 
-# AAQ56178.1: H40 H42 H114"
 
 # In[5]:
 
@@ -114,9 +102,6 @@ for j in range (0 ,len(id_positions)):
 #    print(*indx[j]+ indx2[j], sep = ', ')   OR
 
 
-# ## (5)
-
-# "For the analysis of active site amino acids we’d need code to enumerate all different combinations, so that we’d get their numbers in the data (e.g. HHH: 28; HHQ: 1) and also lists of sequence IDs for each combination. The sample has all HHH so this does not give any meaningful output yet, but we’ll need that for alpha CAs. "
 
 # In[6]:
 
